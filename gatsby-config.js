@@ -1,34 +1,34 @@
 require("dotenv").config({
-    path: `.env.${process.env.NODE_ENV}`,
-  })
+  path: `.env.${process.env.NODE_ENV}`,
+})
 module.exports = {
   siteMetadata: {
     title: `Samurai Blaze`,
     description: `Smoking Accessories`,
     author: `@bitbuilder.co`,
     siteUrl: `https://samuraiblaze.com`,
-    
+
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-styled-components`,
     {
-        resolve: `gatsby-source-contentful`,
-        options: {
-          spaceId: '7mm0wpb7pulu',
-          // Learn about environment variables: https://gatsby.dev/env-vars
-          accessToken: 'a9Ko2R4l7LD85Q1DMuxP0iN1hTnwa4HhP2iDQ9TtVtg',
+      resolve: `gatsby-source-contentful`,
+      options: {
+        spaceId: '7mm0wpb7pulu',
+        // Learn about environment variables: https://gatsby.dev/env-vars
+        accessToken: 'a9Ko2R4l7LD85Q1DMuxP0iN1hTnwa4HhP2iDQ9TtVtg',
         //   host: `preview.contentful.com`,
-        },
       },
-      {
-        resolve: 'gatsby-plugin-react-svg',
-        options: {
-          rule: {
-            include: /assets/
-          }
+    },
+    {
+      resolve: 'gatsby-plugin-react-svg',
+      options: {
+        rule: {
+          include: /assets/
         }
-      },
+      }
+    },
     `gatsby-plugin-image`,
     {
       resolve: `gatsby-source-filesystem`,
