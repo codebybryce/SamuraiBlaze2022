@@ -1,42 +1,37 @@
 import * as React from "react"
-import PropTypes from "prop-types"
-import { Link } from "gatsby"
+import styled from 'styled-components'
 
-const Header = ({ siteTitle }) => (
-  <header
-    style={{
-      background: `rebeccapurple`,
-      marginBottom: `1.45rem`,
-    }}
-  >
-    <div
-      style={{
-        margin: `0 auto`,
-        maxWidth: 960,
-        padding: `1.45rem 1.0875rem`,
-      }}
-    >
-      <h1 style={{ margin: 0 }}>
-        <Link
-          to="/"
-          style={{
-            color: `white`,
-            textDecoration: `none`,
-          }}
-        >
-          {siteTitle}
-        </Link>
-      </h1>
-    </div>
-  </header>
-)
+const Header = ({ logo, search, cart, color, background, height }) => {
+    return(
+        <>
+        <Container color={color} backgroundColor={background} height={height}>
+            <Logo>{logo}</Logo>
+            <Search>{search}</Search>
+            <CartMenu>{cart}</CartMenu>
+        </Container>
 
-Header.propTypes = {
-  siteTitle: PropTypes.string,
-}
-
-Header.defaultProps = {
-  siteTitle: ``,
+        </>
+    )
 }
 
 export default Header
+
+const Container = styled.div`
+color: ${(props)=>props.color};
+background: ${(props)=>props.backgroundColor};
+height: ${(props)=>props.height};
+display: grid; 
+grid-template-columns: 1fr 1fr 1fr 1fr; 
+grid-template-rows: 1fr; 
+padding: .5rem;
+gap: 1px 10px; 
+align-items: center;
+justify-items: center;
+justify-content: center;
+align-content: stretch;
+grid-template-areas: 
+"logo search search cartMenu"; `
+
+const Logo = styled.div`grid-area: logo;`
+const Search = styled.div`grid-area: search;`
+const CartMenu =styled.div`grid-area: cartMenu;`

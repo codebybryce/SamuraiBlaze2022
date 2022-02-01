@@ -1,31 +1,47 @@
-import * as React from "react"
-import { Link } from "gatsby"
-import { StaticImage } from "gatsby-plugin-image"
+import * as React from "react";
+import styled from 'styled-components';
 
-import Layout from "../components/layout"
-import Seo from "../components/seo"
+import Layout from "../components/layout";
 
-const IndexPage = () => (
-  <Layout>
-    <Seo title="Home" />
-    <h1>Hi people</h1>
-    <p>Welcome to your new Gatsby site.</p>
-    <p>Now go build something great.</p>
-    <StaticImage
-      src="../images/gatsby-astronaut.png"
-      width={300}
-      quality={95}
-      formats={["auto", "webp", "avif"]}
-      alt="A Gatsby astronaut"
-      style={{ marginBottom: `1.45rem` }}
-    />
-    <p>
-      <Link to="/page-2/">Go to page 2</Link> <br />
-      <Link to="/using-typescript/">Go to "Using TypeScript"</Link> <br />
-      <Link to="/using-ssr">Go to "Using SSR"</Link> <br />
-      <Link to="/using-dsg">Go to "Using DSG"</Link>
-    </p>
-  </Layout>
-)
+const IndexPage = ({data}) => {
+  
+    return(
+        <Layout>
+            <Hero>
+                <Dot>
+                    
+                </Dot>
+               
+
+
+            </Hero>
+   
+     </Layout>)
+
+}
+    
 
 export default IndexPage
+
+
+
+const Hero = styled.div`
+width: 100vw;
+height: calc(80vh - 3rem);
+margim-top: 3rem;
+background: black;
+display: flex;
+align-items: center;
+justify-content: center;
+flex-direction: row;
+transform: 1s;
+
+`
+const Dot = styled.div`
+height: 200px;
+width: 200px;
+background: linear-gradient(180deg, #36B4A0 0%, #7DE2D1 100%);
+border-radius: 50%;
+position: relative;
+
+`
