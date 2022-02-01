@@ -1,17 +1,51 @@
+
+
 *{
     margin:0;
     padding:0;
     box-sizing: border-box;
+    overflow-x: hidden;
+    
+
+    
 };
 
-html{
-    /* font-family: 'Source Sans Pro', sans-serif; */
-    color: var(--fontColor);
-};
+body{
+    width: 100vw;
+    overflow-x: hidden;
+    white-space: pre-line;
+}
+
+
 
 footer{
     bottom:0;
     left:0;
     overflow:hidden;
     position: fixed;
+};
+
+h1{
+   
+    font-family: 'Open Sans', sans-serif; 
+    color: white;
+    
+};
+h2{
+    font-size: clamp(1rem, 0rem + 5.3333vw, 4rem);
+};
+h3, h4, h5, p{
+    font-size: clamp(0.5rem, 0.1667rem + 1.7778vw, 1.5rem);
+}
+
+button{
+    padding: .5rem 1rem;
+    font-size: clamp(0.5rem, 0.1667rem + 1.7778vw, 1.5rem);
+    background: none;
+
+
+}
+
+.gatsby-image-wrapper-constrained{
+    z-index: 10;
 }
