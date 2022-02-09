@@ -1,10 +1,20 @@
 
-
+:root{
+    --mainBackGround: #F3F7F7;
+    --teal: #7DE2D1;
+    --tealGradient: linear-gradient(137.18deg, #339989 0%, #38CEB7 99.56%);
+    --blackTheme: #27282f;
+    --blackThemeText: rgba(255,255,255,.7);
+    --blackThemeTextHover: rgba(255,255,255,1);
+    -kdrop: rgba(72, 67, 79, 0.5);
+    
+}
 *{
     margin:0;
     padding:0;
     box-sizing: border-box;
     overflow-x: hidden;
+    font-family: "Open Sans";
     
 
     
@@ -14,6 +24,7 @@ body{
     width: 100vw;
     overflow-x: hidden;
     white-space: pre-line;
+    
 }
 
 
@@ -23,29 +34,78 @@ footer{
     left:0;
     overflow:hidden;
     position: fixed;
-};
+}
 
 h1{
-   
-    font-family: 'Open Sans', sans-serif; 
-    color: white;
     
-};
+    font-size: clamp(1rem, 0.5395rem + 2.4561vw, 2.75rem);
+    text-transform: uppercase;
+    
+}
+
 h2{
-    font-size: clamp(1rem, 0rem + 5.3333vw, 4rem);
-};
+    font-size: clamp(1rem, 0.7368rem + 1.4035vw, 2rem);
+    text-transform: uppercase;
+}
+
 h3, h4, h5, p{
-    font-size: clamp(0.5rem, 0.1667rem + 1.7778vw, 1.5rem);
+    font-size: clamp(1rem, 0.8684rem + 0.7018vw, 1.5rem);
 }
 
 button{
+    all: unset;
+    cursor:pointer;
     padding: .5rem 1rem;
-    font-size: clamp(0.5rem, 0.1667rem + 1.7778vw, 1.5rem);
     background: none;
 
 
 }
 
+
+
 .gatsby-image-wrapper-constrained{
     z-index: 10;
 }
+
+.section-title{
+    width: 100%;
+    height: -webkit-max-content;
+    height: max-content;
+    display: flex;
+    padding-left: 5vw;
+    justify-content: flex-start;
+    margin-top: 1rem;
+
+}
+
+
+/* ===== Scrollbar CSS ===== */
+  /* Firefox */
+  * {
+    scrollbar-width: none;
+    scrollbar-color: #7de2d1 #27282f;
+  }
+
+  /* Chrome, Edge, and Safari */
+  *::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  *::-webkit-scrollbar-track {
+    background: var(--blackTheme);
+  }
+
+  *::-webkit-scrollbar-thumb {
+    background: var(--tealGradient);
+    border-radius: 10px;
+    border: 2px none #ffffff;
+  }
+
+
+  @media only screen and (max-width: 768px) {
+    *{scrollbar-width: none;
+    }
+    *::-webkit-scrollbar {
+    display: none;}
+
+  }

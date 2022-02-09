@@ -1,8 +1,5 @@
-import React from 'react'
+import React from "react"
 
+const SamuraiBlazeLogo = () => {}
 
-const SamuraiBlazeLogo =()=>{
-    
-}
-
-export default SamuraiBlazeLogo;
+export default SamuraiBlazeLogo

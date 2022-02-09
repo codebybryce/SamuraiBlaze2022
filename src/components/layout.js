@@ -7,30 +7,26 @@ import Footer from "./footer.js";
 import { AiOutlineMenu } from "@react-icons/all-files/ai/AiOutlineMenu";
 import { AiOutlineShoppingCart } from "@react-icons/all-files/ai/AiOutlineShoppingCart";
 import { CookiesProvider, useCookies } from "react-cookie";
-
 import { Helmet } from "react-helmet";
-import styled from "styled-components";
+
 import "@fontsource/open-sans";
 import Header from "./header";
 import "./layout.css";
+import styled from "styled-components";
+import MenuDrawer from "../components/MenuDrawer";
 
 
 
-
-
-
-
-const Layout = ( { children } ) => {
+const headHeight = '4rem';
+const Layout = ( { children, left, position, } ) => {
     const [over21, setOver21] = useState( false );
-    const [cookies, setCookies] = useCookies( ['isOver21'] );
+    const [cookies, setCookies] = useCookies( ["isOver21"] );
+    const [drawer, setDrawer] = useState( false );
+    console.log( drawer );
+    function closeDrawer() {
+        setDrawer( false )
 
-
-
-
-
-
-
-
+    }
 
 
     const data = useStaticQuery( graphql`
@@ -42,6 +38,7 @@ const Layout = ( { children } ) => {
       }
     }
   `);
+    console.log( data );
 
 
 
@@ -49,60 +46,68 @@ const Layout = ( { children } ) => {
         <>
             <CookiesProvider>
 
+                <Helmet></Helmet>
+                {drawer ? <MenuDrawer left={'0'} position={'fixed'} onClickModal={() => closeDrawer() } /> : <MenuDrawer left={'-100%'} position={'absolute'} />}
 
-                <Helmet>
-
-                </Helmet>
                 <Header
-                    logo={<AiOutlineMenu size='1.5rem' fill='rgba(1,1,1,.5)' />}
-                    search={<Link to='/'><Logo height='3rem' fill='black' cursor='pointer' /></Link>}
-                    cart={<Link to='/cart'><AiOutlineShoppingCart size='1.5rem' fill='rgba(1,1,1,.5) ' /></Link>}
-                    height='4rem'
-                    background='rgba(255,255,255,0)'
+
+                    logo={<AiOutlineMenu className='button-style' size="1.5rem" fill="var(--blackThemeText)" onClick={() => setDrawer( !drawer )} />}
+                    search={
+                        <Link to="/">
+                            <Logo height="3rem" fill="black" cursor="pointer" />
+                        </Link>
+                    }
+                    cart={
+                        <Link to="/cart">
+                            <AiOutlineShoppingCart size="1.5rem"
+                                fill="var(--blackThemeText)" />
+                        </Link>
+                    }
+                    height={headHeight}
+                    background="var(--blackTheme)"
 
                 />
                 <div>
-                    {over21 &&
-                        <AgeGate style={{ textAlign: 'center' }}>
-                            <h1 >Welcome to Samurai Blaze <br /> online smoke shop</h1>
+                    {over21 && (
+                        <AgeGate style={{ textAlign: "center" }}>
+                            <h1>
+                                Welcome to Samurai Blaze <br /> online smoke shop
+              </h1>
                             <h3>You must be 21 to enter</h3>
                             <button onClick={() => setOver21( true )}>I am over 21</button>
-                        </AgeGate>}
-
-
+                        </AgeGate>
+                    )}
 
                     {children}
+
+
+
+
                 </div>
 
                 <Footer />
 
             </CookiesProvider>
-
         </>
     );
 };
 
-Layout.propTypes = {
-    children: PropTypes.node.isRequired,
-};
 
 export default Layout;
 
-
 const AgeGate = styled.div`
-width: 100%;
-height:100vh;
-z-index: 100;
-background: #7de2d1;
-position: absolute;
-top:0;
-opacity: ${( props ) => props.opacity};
-display: flex;
-display: flex;
-flex-direction: column;
-align-content: center;
-justify-content: center;
-align-items: center;
-
-
+  width: 100%;
+  height: 100vh;
+  z-index: 100;
+  background: #7de2d1;
+  position: absolute;
+  top: 0;
+  opacity: ${props => props.opacity};
+  display: flex;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
 `;
+
