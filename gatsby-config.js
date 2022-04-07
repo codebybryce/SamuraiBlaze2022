@@ -1,5 +1,5 @@
 require( "dotenv" ).config( {
-    path: `.env.${process.env.NODE_ENV}`,
+    path: `.env.${ process.env.NODE_ENV }`,
 } );
 module.exports = {
     siteMetadata: {
@@ -51,6 +51,31 @@ module.exports = {
             },
         },
         {
+            resolve: "gatsby-plugin-firebase",
+            options: {
+              credentials: {
+                apiKey: "AIzaSyCN6sm1zj4dxiKTpDl_Z2wVE3bp-S-j0aM",
+                authDomain: "samurai-app-c3c9a.firebaseapp.com",
+                projectId: "samurai-app-c3c9a",
+                storageBucket: "samurai-app-c3c9a.appspot.com",
+                messagingSenderId: "230590652547",
+                appId: "1:230590652547:web:0904f71c0a5dc0fa523bb6",
+                measurementId: "G-JTCLX8FZLC"
+              }
+            }
+          },
+        {
+            resolve: `gatsby-transformer-remark`,
+            options: {
+                // Footnotes mode (default: true)
+                footnotes: true,
+                // GitHub Flavored Markdown mode (default: true)
+                gfm: true,
+                // Plugins configs
+                plugins: [],
+            },
+        },
+        {
             resolve: "gatsby-plugin-react-svg",
             options: {
                 rule: {
@@ -63,7 +88,7 @@ module.exports = {
             resolve: `gatsby-source-filesystem`,
             options: {
                 name: `images`,
-                path: `${__dirname}/src/images`,
+                path: `${ __dirname }/src/images`,
             },
         },
         `gatsby-transformer-sharp`,

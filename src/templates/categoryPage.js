@@ -2,9 +2,9 @@ import React from 'react';
 import Layout from "../components/layout";
 import "../templates/landingPageGrid.css";
 import { GatsbyImage } from "gatsby-plugin-image";
-import styled from "styled-components"
+import styled from "styled-components";
 
-const LandingPageTemplate = ( { pageContext } ) => {
+const CategoryPageTemplate = ( { pageContext } ) => {
 
 
     console.log( pageContext );
@@ -22,10 +22,10 @@ const LandingPageTemplate = ( { pageContext } ) => {
                 <div class="header" />
                 <div class="content">
 
-                    
-                        <div dangerouslySetInnerHTML={createMarkup()} />
 
-        
+                    <div dangerouslySetInnerHTML={createMarkup()} />
+
+
 
                 </div>
                 <div class="menu">{""}</div>
@@ -42,4 +42,4 @@ const LandingPageTemplate = ( { pageContext } ) => {
         </Layout>
     );
 };
-export default LandingPageTemplate;
+export default CategoryPageTemplate;

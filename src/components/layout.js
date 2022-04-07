@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import PropTypes from "prop-types";
 import { Link } from "gatsby";
 import { useStaticQuery, graphql } from "gatsby";
 import Logo from "../assets/gradlogo.svg";
@@ -8,7 +7,6 @@ import { AiOutlineMenu } from "@react-icons/all-files/ai/AiOutlineMenu";
 import { AiOutlineShoppingCart } from "@react-icons/all-files/ai/AiOutlineShoppingCart";
 import { CookiesProvider, useCookies } from "react-cookie";
 import { Helmet } from "react-helmet";
-
 import "@fontsource/open-sans";
 import Header from "./header";
 import "./layout.css";
@@ -16,29 +14,18 @@ import styled from "styled-components";
 import MenuDrawer from "../components/MenuDrawer";
 
 
-
 const headHeight = '4rem';
 const Layout = ( { children, left, position, } ) => {
     const [over21, setOver21] = useState( false );
     const [cookies, setCookies] = useCookies( ["isOver21"] );
     const [drawer, setDrawer] = useState( false );
-    console.log( drawer );
-    function closeDrawer() {
-        setDrawer( false )
+
+
+    function closeDrawer () {
+        setDrawer( false );
 
     }
 
-
-    const data = useStaticQuery( graphql`
-    query SiteTitleQuery {
-      site {
-        siteMetadata {
-          title
-        }
-      }
-    }
-  `);
-    console.log( data );
 
 
 
@@ -47,7 +34,7 @@ const Layout = ( { children, left, position, } ) => {
             <CookiesProvider>
 
                 <Helmet></Helmet>
-                {drawer ? <MenuDrawer left={'0'} position={'fixed'} onClickModal={() => closeDrawer() } /> : <MenuDrawer left={'-100%'} position={'absolute'} />}
+                {drawer ? <MenuDrawer left={'0'} position={'fixed'} onClickModal={() => closeDrawer()} /> : <MenuDrawer left={'-100%'} position={'absolute'} />}
 
                 <Header
 
@@ -58,11 +45,15 @@ const Layout = ( { children, left, position, } ) => {
                         </Link>
                     }
                     cart={
-                        <Link to="/cart">
-                            <AiOutlineShoppingCart size="1.5rem"
-                                fill="var(--blackThemeText)" />
-                        </Link>
-                    }
+                        <button>
+                            <Link to="/cart">
+                                <AiOutlineShoppingCart size="1.5rem"
+                                    fill="var(--blackThemeText)" />
+                            </Link>
+
+
+                        </button>}
+
                     height={headHeight}
                     background="var(--blackTheme)"
 
@@ -78,7 +69,10 @@ const Layout = ( { children, left, position, } ) => {
                         </AgeGate>
                     )}
 
-                    {children}
+                    <div className='page-wrapper'>
+
+                        {children}
+                    </div>
 
 
 
@@ -102,7 +96,7 @@ const AgeGate = styled.div`
   background: #7de2d1;
   position: absolute;
   top: 0;
-  opacity: ${props => props.opacity};
+  opacity: ${ props => props.opacity };
   display: flex;
   display: flex;
   flex-direction: column;

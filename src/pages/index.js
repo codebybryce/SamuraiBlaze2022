@@ -6,10 +6,23 @@ import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import { graphql } from "gatsby";
 import "@fontsource/open-sans"; // Defaults to weight 400.
 import BestSellers from "../components/sections/BestSellers";
+import NewProducts from "../components/sections/NewProducts"
+import firebase from "gatsby-plugin-firebase"
 
 
-const IndexPage = ( { data } ) => {
+
+
+const IndexPage = (  ) => {
     const image = getImage( data.contentfulAsset.gatsbyImageData );
+    const [api, setapi] = React.useState(null)
+
+    const [data, setData] = React.useState(null)
+
+    React.useEffect(()=>{
+        firebase.database()
+    })
+
+
 
     return (
         <>

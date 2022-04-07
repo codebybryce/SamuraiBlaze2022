@@ -1,9 +1,9 @@
 import React, { useEffect, useRef } from 'react';
 import styled, { keyframes } from "styled-components";
 import { gsap } from "gsap";
+const axios = require('axios')
 
-
-
+axios.get()
 
 
 const Hero = ( { content, themeSecondary, background, brand, ProductTitle, ProductDescription, marginTop } ) => {
@@ -58,12 +58,11 @@ export default Hero;
 
 
 const StyledDiv = styled.div`
-margin-top: ${( props ) => props.marginTop};
 
     position:relative;
   width:100%;
   height: calc(80vh - 3rem);
-  background: ${( props ) => props.background || 'black'};
+  background: ${ ( props ) => props.background || 'black' };
   display: flex;
   align-items: center;
   justify-content: center;
@@ -74,12 +73,12 @@ margin-top: ${( props ) => props.marginTop};
 const Dot = styled.div`
   height: 20vh;
   width: 20vh;
-  background: ${props =>
-        props.background || "linear-gradient(180deg, #36B4A0 0%, #7DE2D1 100%)"};
+  background: ${ props =>
+        props.background || "linear-gradient(180deg, #36B4A0 0%, #7DE2D1 100%)" };
   border-radius: 50%;
   position: absolute;
-  transform: ${props => props.scale || `scale(1)`};
-  z-index: ${props => props.zindex};
+  transform: ${ props => props.scale || `scale(1)` };
+  z-index: ${ props => props.zindex };
 `;
 
 const TextBox = styled.div`
@@ -135,7 +134,7 @@ border: 2px solid var(--teal);
 transition: .8s;
 :hover{
     background: var(--teal);
-    color: ${( props ) => props.background || 'black'};
+    color: ${ ( props ) => props.background || 'black' };
     transition: .8s;
 }
 

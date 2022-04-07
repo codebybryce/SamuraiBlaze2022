@@ -1,12 +1,18 @@
 
 :root{
     --mainBackGround: #F3F7F7;
+    --secondaryBackground: #e4e5ea; 
+    
     --teal: #7DE2D1;
     --tealGradient: linear-gradient(137.18deg, #339989 0%, #38CEB7 99.56%);
     --blackTheme: #27282f;
     --blackThemeText: rgba(255,255,255,.7);
     --blackThemeTextHover: rgba(255,255,255,1);
-    -kdrop: rgba(72, 67, 79, 0.5);
+    --kdrop: rgba(72, 67, 79, 0.5);
+    --header: 4rem;
+    --footer: 6rem;
+    --textColor: #262626;
+    --padding: 1rem;
     
 }
 *{
@@ -24,6 +30,8 @@ body{
     width: 100vw;
     overflow-x: hidden;
     white-space: pre-line;
+    line-height: 1.6;
+    color: var(--blackTheme)
     
 }
 
@@ -52,6 +60,61 @@ h3, h4, h5, p{
     font-size: clamp(1rem, 0.8684rem + 0.7018vw, 1.5rem);
 }
 
+
+h1, h2, h3, h4, h5, h6 {
+    text-rendering: optimizeLegibility;
+    font-weight: 400;
+    margin: 0 0 1.45rem;
+    padding: 0;
+}
+
+blockquote, figcaption, ol, p, pre, table, ul {
+    font-size: 1rem;
+    font-weight: 300;
+    line-height: 1.77778rem;
+    margin-bottom: 1.77778rem;
+    margin-top: 0;
+}
+
+li{
+    list-style-type: none;
+    line-height: 2.5;
+}
+
+a{
+    text-decoration: none;
+
+
+}
+
+
+a.text-on-dark{
+    
+    color: whitesmoke;
+    transition: 1s;
+    transition-timing-function: ease-in-out
+}
+a.text-on-dark:hover{
+    
+    color: var(--teal);
+    transform:scale(2);
+  
+    
+
+}
+
+
+/* Text Styling */
+::-moz-selection { /* Code for Firefox */
+    color: var(--mainBackGround);
+    background: var(--teal);
+  }
+  
+  ::selection {
+    color: var(--mainBackGround);
+    background: var(--teal);
+  }
+
 button{
     all: unset;
     cursor:pointer;
@@ -60,8 +123,6 @@ button{
 
 
 }
-
-
 
 .gatsby-image-wrapper-constrained{
     z-index: 10;
@@ -78,7 +139,10 @@ button{
 
 }
 
+div .page-wrapper{
+    margin-top: 4rem;
 
+}
 /* ===== Scrollbar CSS ===== */
   /* Firefox */
   * {
